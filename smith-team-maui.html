@@ -214,6 +214,9 @@
     position:absolute;right:14px;top:14px;background:rgba(36,31,26,.55);color:#F6EFE4;
     padding:.4rem .8rem;border-radius:100px;font-size:.74rem;letter-spacing:.08em;text-transform:uppercase;font-weight:600;backdrop-filter:blur(4px);
   }
+  .card-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;transition:transform .6s var(--ease)}
+  .card:hover .card-photo{transform:scale(1.05)}
+  .card-media .price-tag,.card-media .area-tag{z-index:2}
   .card-body{padding:1.5rem 1.6rem 1.7rem;display:flex;flex-direction:column;gap:.35rem;flex:1}
   .card-body .addr{font-family:var(--display);font-size:1.32rem;line-height:1.15}
   .card-body .town{color:var(--text-soft);font-size:.95rem}
@@ -266,10 +269,15 @@
   .bio{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-sm);transition:transform .45s var(--ease),box-shadow .45s var(--ease)}
   .bio:hover{transform:translateY(-6px);box-shadow:var(--shadow-md)}
   .bio-photo{
-    aspect-ratio:3/3.4;position:relative;
-    /* PHOTO PLACEHOLDER: professional headshot, warm natural light, 900×1020, neutral/island backdrop */
+    aspect-ratio:3/3.4;position:relative;display:grid;place-items:center;overflow:hidden;
+    /* PLACEHOLDER: monogram avatar — swap for professional headshot (900×1020) before launch */
     background:linear-gradient(165deg,#dfe8e2 0%,#9fb6ac 55%,#2f5249 100%);
   }
+  .bio-monogram{
+    font-family:var(--display);font-weight:500;font-size:clamp(3.4rem,7vw,5rem);line-height:1;
+    color:rgba(255,253,249,.92);letter-spacing:.03em;text-shadow:0 2px 24px rgba(20,30,25,.28);
+  }
+  .bio-monogram::after{content:"";position:absolute;left:50%;top:44%;transform:translate(-50%,-50%);width:44%;aspect-ratio:1;border-radius:50%;border:1px solid rgba(255,253,249,.28);z-index:-1}
   .bio-photo .role{position:absolute;left:16px;bottom:16px;background:rgba(246,239,228,.94);color:var(--text);padding:.42rem .85rem;border-radius:100px;font-size:.76rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase}
   .bio-body{padding:1.6rem 1.6rem 1.8rem}
   .bio-body h3{margin-bottom:.15rem}
@@ -493,8 +501,9 @@
       <div class="listings-grid">
         <!-- LISTING 1 — live data from ksmith.islandproperties.com/our-listings (re-verify status & price before launch) -->
         <article class="card reveal">
-          <div class="card-media" role="img" aria-label="Oceanfront condo at 4850 Makena Alanui Road in Makena, Maui">
-            <!-- PHOTO PLACEHOLDER: listing photo for 4850 Makena Alanui Rd, Makena -->
+          <div class="card-media">
+            <!-- DEMO photo (Pexels, representative) — swap for the listing's real MLS exterior at launch -->
+            <img class="card-photo" src="https://images.pexels.com/photos/12715491/pexels-photo-12715491.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=800" alt="Oceanfront villa with infinity pool, representative of a Makena luxury property" loading="lazy" decoding="async" onerror="this.remove()" />
             <span class="area-tag">Makena · South Maui</span>
             <span class="price-tag">$4,995,000</span>
           </div>
@@ -512,8 +521,9 @@
 
         <!-- LISTING 2 -->
         <article class="card reveal" data-delay="1">
-          <div class="card-media" role="img" aria-label="Single-family home at 199 Puaehu Street in Wailuku, Maui">
-            <!-- PHOTO PLACEHOLDER: listing photo for 199 Puaehu St, Wailuku -->
+          <div class="card-media">
+            <!-- DEMO photo (Pexels, representative) — swap for the listing's real MLS exterior at launch -->
+            <img class="card-photo" src="https://images.pexels.com/photos/15516328/pexels-photo-15516328.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=800" alt="Maui home amid lush tropical greenery, representative of a Wailuku property" loading="lazy" decoding="async" onerror="this.remove()" />
             <span class="area-tag">Wailuku · Central</span>
             <span class="price-tag">$1,499,000</span>
           </div>
@@ -531,8 +541,9 @@
 
         <!-- LISTING 3 -->
         <article class="card reveal" data-delay="2">
-          <div class="card-media" role="img" aria-label="Condo at 15 Kulanihakoi Street in Kihei, Maui">
-            <!-- PHOTO PLACEHOLDER: listing photo for 15 Kulanihakoi St, Kihei -->
+          <div class="card-media">
+            <!-- DEMO photo (Pexels, representative) — swap for the listing's real MLS exterior at launch -->
+            <img class="card-photo" src="https://images.pexels.com/photos/15516374/pexels-photo-15516374.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=800" alt="Coastal homes above the water in Kihei, Maui" loading="lazy" decoding="async" onerror="this.remove()" />
             <span class="area-tag">Kihei · South Shore</span>
             <span class="price-tag">$625,000</span>
           </div>
@@ -623,8 +634,9 @@
       <div class="team-grid">
         <!-- KEN -->
         <article class="bio reveal">
-          <div class="bio-photo" role="img" aria-label="Portrait of Ken Smith, Broker and team lead">
-            <!-- PHOTO PLACEHOLDER: Ken Smith headshot -->
+          <div class="bio-photo">
+            <!-- PLACEHOLDER: monogram avatar — swap for Ken Smith headshot at launch -->
+            <span class="bio-monogram" aria-hidden="true">KS</span>
             <span class="role">Broker · Team Lead</span>
           </div>
           <div class="bio-body">
@@ -637,8 +649,9 @@
 
         <!-- GREG -->
         <article class="bio reveal" data-delay="1">
-          <div class="bio-photo" role="img" aria-label="Portrait of Gregory Smith, agent">
-            <!-- PHOTO PLACEHOLDER: Gregory Smith headshot -->
+          <div class="bio-photo">
+            <!-- PLACEHOLDER: monogram avatar — swap for Gregory Smith headshot at launch -->
+            <span class="bio-monogram" aria-hidden="true">GS</span>
             <span class="role">Agent</span>
           </div>
           <div class="bio-body">
@@ -651,8 +664,9 @@
 
         <!-- MELISSA -->
         <article class="bio reveal" data-delay="2">
-          <div class="bio-photo" role="img" aria-label="Portrait of Melissa Smith, agent">
-            <!-- PHOTO PLACEHOLDER: Melissa Smith headshot -->
+          <div class="bio-photo">
+            <!-- PLACEHOLDER: monogram avatar — swap for Melissa Smith headshot at launch -->
+            <span class="bio-monogram" aria-hidden="true">MS</span>
             <span class="role">Agent</span>
           </div>
           <div class="bio-body">

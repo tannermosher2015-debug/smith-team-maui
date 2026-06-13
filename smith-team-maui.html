@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>The Smith Team — Maui Real Estate | Coldwell Banker Island Properties</title>
+<meta name="description" content="For 35 years and three generations, the Smith Team has helped families buy and sell across Maui — homes, condos, and land in Kihei, Wailea, Lahaina, Pukalani, and Wailuku. Find your own little piece of Maui." />
+<meta name="theme-color" content="#1E3A34" />
+
+<!-- Open Graph / social -->
+<meta property="og:type" content="website" />
+<meta property="og:title" content="The Smith Team — Your own little piece of Maui" />
+<meta property="og:description" content="Three generations of Maui realtors. Buy, sell, and value homes across the island with aloha, integrity, and three decades of local knowledge." />
+<!-- OG IMAGE PLACEHOLDER: 1200×630 hero image — Smith Team on a Maui shoreline at golden hour, warm tones, team in resort-casual attire. -->
+<meta property="og:image" content="og-smith-team-maui.jpg" />
+<meta property="og:url" content="https://ksmith.islandproperties.com/" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="The Smith Team — Your own little piece of Maui" />
+<meta name="twitter:description" content="Three generations of Maui realtors. Buy, sell, and value homes across the island." />
+
+<!-- Fonts loaded non-render-blocking: print swap pattern + noscript fallback -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=Figtree:wght@400;500;600;700&display=swap" media="print" onload="this.media='all'" />
+<noscript>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=Figtree:wght@400;500;600;700&display=swap" />
+</noscript>
+
+<!-- Critical CSS inlined -->
+<style>
+  /* ============ DESIGN TOKENS ============ */
+  :root{
+    --background:#F6EFE4;   /* warm sand canvas        */
+    --surface:#FFFDF9;      /* near-white card         */
+    --primary:#1E3A34;      /* deep tropical teal      */
+    --accent:#C16A3E;       /* terracotta sunset       */
+    --accent-deep:#9E4F28;  /* darker terracotta — AA text on light */
+    --text:#241F1A;         /* warm espresso           */
+
+    /* derived */
+    --text-soft:#5A5046;
+    --line:#E4D8C5;
+    --teal-haze:#6E8F86;
+    --teal-mist:#A9C0B7;
+
+    --maxw:1200px;
+    --gutter:clamp(1.25rem, 5vw, 4rem);
+    --radius:18px;
+    --radius-lg:28px;
+
+    --display:"Fraunces", Georgia, "Times New Roman", serif;
+    --body:"Figtree", "Segoe UI", system-ui, sans-serif;
+
+    --shadow-sm:0 1px 2px rgba(36,31,26,.05), 0 8px 24px -16px rgba(36,31,26,.25);
+    --shadow-md:0 2px 6px rgba(36,31,26,.06), 0 30px 60px -28px rgba(36,31,26,.35);
+
+    --ease:cubic-bezier(.22,.61,.36,1);
+  }
+
+  /* ============ RESET ============ */
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-padding-top:88px;-webkit-text-size-adjust:100%}
+  @media (prefers-reduced-motion: no-preference){ html{scroll-behavior:smooth} }
+  body{
+    font-family:var(--body);
+    font-size:17px;
+    line-height:1.65;
+    color:var(--text);
+    background:var(--background);
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+    overflow-x:hidden;
+  }
+  img{max-width:100%;display:block}
+  a{color:inherit;text-decoration:none}
+  button{font:inherit;cursor:pointer;border:none;background:none;color:inherit}
+  ul{list-style:none}
+
+  /* film grain for organic warmth — kept cheap (no blend mode) for smooth compositing */
+  body::after{
+    content:"";position:fixed;inset:0;pointer-events:none;z-index:9000;opacity:.05;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+  }
+
+  /* ============ TYPE SCALE ============ */
+  h1,h2,h3{font-family:var(--display);font-weight:400;line-height:1.04;letter-spacing:-.015em;color:var(--text)}
+  .h1{font-size:clamp(3rem, 7.5vw, 5.5rem);font-optical-sizing:auto}
+  .h2{font-size:clamp(2.1rem, 4.6vw, 3rem);line-height:1.08}
+  .h3{font-size:clamp(1.35rem, 2.3vw, 1.6rem);line-height:1.18;letter-spacing:-.01em}
+  .lead{font-size:clamp(1.1rem, 1.7vw, 1.3rem);line-height:1.55;color:var(--text-soft);max-width:46ch}
+  .eyebrow{
+    font-family:var(--body);font-weight:600;font-size:.78rem;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--accent-deep);display:inline-flex;align-items:center;gap:.6rem;
+  }
+  .eyebrow::before{content:"";width:26px;height:1px;background:var(--accent);display:inline-block}
+  .caption{font-size:.8125rem;color:var(--text-soft);letter-spacing:.01em}
+
+  /* ============ LAYOUT ============ */
+  .wrap{max-width:var(--maxw);margin-inline:auto;padding-inline:var(--gutter)}
+  section{padding-block:clamp(3rem, 9vw, 7.5rem)}
+  .section-head{max-width:52ch}
+  .section-head .h2{margin-top:.7rem}
+  .section-head p{margin-top:1rem}
+
+  /* ============ BUTTONS ============ */
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:.55rem;
+    min-height:50px;padding:.85rem 1.6rem;border-radius:100px;
+    font-weight:600;font-size:1rem;letter-spacing:.01em;
+    transition:transform .35s var(--ease), background .3s var(--ease), color .3s var(--ease), box-shadow .35s var(--ease);
+    will-change:transform;
+  }
+  .btn:active{transform:translateY(1px)}
+  .btn-primary{background:var(--primary);color:#FBF7EF;box-shadow:var(--shadow-sm)}
+  .btn-primary:hover{background:#15302A;transform:translateY(-2px);box-shadow:var(--shadow-md)}
+  .btn-outline{background:transparent;color:var(--primary);box-shadow:inset 0 0 0 1.5px var(--primary)}
+  .btn-outline:hover{background:var(--primary);color:#FBF7EF;transform:translateY(-2px)}
+  .btn-ghost{padding-inline:0;min-height:auto;color:var(--accent-deep);font-weight:600;position:relative}
+  .btn-ghost .arrow{transition:transform .3s var(--ease)}
+  .btn-ghost:hover .arrow{transform:translateX(5px)}
+
+  /* visible focus ring everywhere */
+  a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible{
+    outline:3px solid var(--accent);outline-offset:3px;border-radius:6px;
+  }
+
+  .skip-link{
+    position:absolute;left:-9999px;top:0;z-index:10000;background:var(--primary);color:#FBF7EF;
+    padding:.8rem 1.2rem;border-radius:0 0 10px 0;font-weight:600;
+  }
+  .skip-link:focus{left:0}
+
+  /* ============ HEADER / NAV ============ */
+  .site-header{
+    position:fixed;top:0;left:0;right:0;z-index:1000;
+    transition:background .4s var(--ease), box-shadow .4s var(--ease), border-color .4s var(--ease);
+    border-bottom:1px solid transparent;
+  }
+  .site-header.scrolled{
+    background:rgba(246,239,228,.86);backdrop-filter:blur(12px) saturate(1.1);
+    border-bottom-color:var(--line);box-shadow:0 10px 30px -24px rgba(36,31,26,.5);
+  }
+  .nav{display:flex;align-items:center;justify-content:space-between;min-height:78px}
+  .brand{display:flex;flex-direction:column;line-height:1.05}
+  .brand b{font-family:var(--display);font-weight:500;font-size:1.18rem;letter-spacing:.02em}
+  .brand span{font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;color:var(--text-soft);font-weight:600}
+  .nav-links{display:flex;align-items:center;gap:2rem}
+  .nav-links a{font-weight:500;font-size:.98rem;position:relative;padding-block:.3rem}
+  .nav-links a::after{
+    content:"";position:absolute;left:0;bottom:-1px;height:1.5px;width:0;background:var(--accent);
+    transition:width .3s var(--ease);
+  }
+  .nav-links a:hover::after,.nav-links a:focus-visible::after{width:100%}
+  .nav-cta{display:flex;align-items:center;gap:1.25rem}
+  .nav-phone{font-weight:600;font-size:.96rem;display:inline-flex;align-items:center;gap:.45rem}
+  .nav-phone svg{width:16px;height:16px;color:var(--accent-deep)}
+
+  .nav-toggle{display:none;width:48px;height:48px;border-radius:12px;align-items:center;justify-content:center}
+  .nav-toggle span{display:block;width:24px;height:2px;background:var(--text);position:relative;transition:transform .3s var(--ease), opacity .3s var(--ease)}
+  .nav-toggle span::before,.nav-toggle span::after{content:"";position:absolute;left:0;width:24px;height:2px;background:var(--text);transition:transform .3s var(--ease)}
+  .nav-toggle span::before{top:-7px}
+  .nav-toggle span::after{top:7px}
+
+  /* ============ HERO ============ */
+  .hero{--scene-h:clamp(260px,38vh,380px);position:relative;min-height:100svh;display:flex;align-items:flex-end;padding-bottom:calc(var(--scene-h) + 2.5rem);overflow:hidden;isolation:isolate}
+  .hero::before{ /* warm sun glow */
+    content:"";position:absolute;top:-10%;right:-6%;width:62vmax;height:62vmax;z-index:-2;
+    background:radial-gradient(circle at center, rgba(232,176,120,.55), rgba(232,176,120,0) 62%);
+    filter:blur(8px);
+  }
+  .hero-inner{width:100%;max-width:var(--maxw);margin-inline:auto;padding-inline:var(--gutter);position:relative;z-index:2;padding-top:120px}
+  .hero .eyebrow{margin-bottom:1.4rem}
+  .hero h1{max-width:15ch}
+  .hero .lead{margin-top:1.5rem}
+  .hero-actions{display:flex;flex-wrap:wrap;gap:1rem;margin-top:2.2rem}
+  .hero-proof{display:flex;align-items:center;gap:.85rem;margin-top:2.4rem;max-width:44ch;color:var(--text-soft);font-size:.95rem}
+  .stars{color:var(--accent);letter-spacing:.12em;font-size:1rem;flex-shrink:0}
+  .hero-proof cite{font-style:italic;font-family:var(--display)}
+
+  /* island horizon SVG anchored to bottom of hero */
+  .hero-scene{position:absolute;left:0;right:0;bottom:0;width:100%;height:var(--scene-h);z-index:-1;display:block;overflow:hidden;background:linear-gradient(160deg,#cfe0d8 0%,#7fa194 52%,#1E3A34 100%)}
+  .hero-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 48%;display:block}
+  .hero-scene::before{content:"";position:absolute;top:0;left:0;right:0;height:50%;z-index:1;pointer-events:none;background:linear-gradient(to bottom, var(--background) 0%, rgba(246,239,228,.55) 48%, rgba(246,239,228,0) 100%)}
+
+  /* ============ TRUST STRIP ============ */
+  .trust{background:var(--primary);color:#EAF1ED;padding-block:clamp(2.2rem,4vw,3rem)}
+  .trust-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;text-align:center}
+  .trust-item{position:relative}
+  .trust-item + .trust-item::before{content:"";position:absolute;left:0;top:50%;transform:translateY(-50%);height:46px;width:1px;background:rgba(234,241,237,.18)}
+  .trust-item b{display:block;font-family:var(--display);font-size:clamp(2rem,3.6vw,2.7rem);font-weight:400;color:#F6EFE4;line-height:1}
+  .trust-item .stars{display:block;font-size:1.2rem;margin-bottom:.15rem}
+  .trust-item span{display:block;margin-top:.5rem;font-size:.84rem;letter-spacing:.05em;color:#BCCFC8;text-transform:uppercase;font-weight:600}
+
+  /* ============ LISTINGS ============ */
+  .listings-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.75rem;margin-top:3rem}
+  .card{
+    background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-lg);overflow:hidden;
+    display:flex;flex-direction:column;box-shadow:var(--shadow-sm);
+    transition:transform .45s var(--ease), box-shadow .45s var(--ease), border-color .45s var(--ease);
+  }
+  .card:hover{transform:translateY(-7px);box-shadow:var(--shadow-md);border-color:#D8C8AE}
+  .card-media{
+    position:relative;aspect-ratio:4/3;overflow:hidden;
+    /* PHOTO PLACEHOLDER: replace with listing exterior photo, 1200×900, warm daylight */
+    background:
+      radial-gradient(120% 90% at 72% 8%, rgba(232,176,120,.45), transparent 52%),
+      linear-gradient(160deg, #d7e3dc 0%, #7fa194 48%, #234038 100%);
+  }
+  .card-media .price-tag{
+    position:absolute;left:14px;bottom:14px;background:rgba(246,239,228,.95);color:var(--text);
+    padding:.5rem .9rem;border-radius:100px;font-weight:600;font-size:.92rem;backdrop-filter:blur(4px);
+  }
+  .card-media .area-tag{
+    position:absolute;right:14px;top:14px;background:rgba(36,31,26,.55);color:#F6EFE4;
+    padding:.4rem .8rem;border-radius:100px;font-size:.74rem;letter-spacing:.08em;text-transform:uppercase;font-weight:600;backdrop-filter:blur(4px);
+  }
+  .card-body{padding:1.5rem 1.6rem 1.7rem;display:flex;flex-direction:column;gap:.35rem;flex:1}
+  .card-body .addr{font-family:var(--display);font-size:1.32rem;line-height:1.15}
+  .card-body .town{color:var(--text-soft);font-size:.95rem}
+  .card-specs{display:flex;gap:1.1rem;margin-top:.9rem;padding-top:.9rem;border-top:1px solid var(--line);color:var(--text-soft);font-size:.9rem}
+  .card-specs span{display:inline-flex;align-items:center;gap:.4rem}
+  .card-link{margin-top:1.1rem}
+  .listings-foot{margin-top:2.6rem;display:flex;justify-content:center}
+
+  /* ============ BUYERS (areas) ============ */
+  .buyers{background:linear-gradient(180deg, var(--background), #F1E7D6)}
+  .areas{display:grid;grid-template-columns:repeat(5,1fr);gap:1rem;margin-top:2.8rem}
+  .area{
+    position:relative;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;isolation:isolate;
+    min-height:212px;display:flex;flex-direction:column;justify-content:flex-end;
+    background:linear-gradient(165deg,#5b7a72 0%,#1E3A34 100%);
+    transition:transform .4s var(--ease), box-shadow .4s var(--ease);
+  }
+  .area:hover{transform:translateY(-5px);box-shadow:var(--shadow-md)}
+  .area-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;transition:transform .6s var(--ease)}
+  .area:hover .area-photo{transform:scale(1.07)}
+  .area::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(to top, rgba(16,26,22,.96) 0%, rgba(16,26,22,.88) 26%, rgba(16,26,22,.42) 54%, rgba(16,26,22,0) 100%)}
+  .area-body{padding:1.2rem 1.25rem 1.3rem}
+  .area-body b{font-family:var(--display);font-size:1.35rem;font-weight:500;color:#FBF7EF;display:block;line-height:1.1}
+  .area-body span{font-size:.85rem;color:#E9EFEB;margin-top:.3rem;display:block;line-height:1.45}
+  .buyers-actions{display:flex;flex-wrap:wrap;gap:1rem;margin-top:2.8rem}
+
+  /* ============ SELLER BAND ============ */
+  .seller{
+    background:
+      radial-gradient(150% 130% at 84% 12%, rgba(244,200,156,.20), transparent 55%),
+      linear-gradient(135deg, #92421F 0%, #5E2910 100%);
+    color:#F0E6D6;border-radius:var(--radius-lg);
+    margin-inline:var(--gutter);padding:clamp(2.6rem,6vw,4.5rem);
+    display:grid;grid-template-columns:1.3fr 1fr;gap:2.5rem;align-items:center;position:relative;overflow:hidden;
+  }
+  .seller-wrap{max-width:var(--maxw);margin-inline:auto;padding-inline:0}
+  .seller .eyebrow{color:#F0E2CC}
+  .seller .eyebrow::before{background:#E2A972}
+  .seller h2{color:#FBF4E8;max-width:16ch}
+  .seller p{margin-top:1.1rem;color:#F0E6D6;font-size:1.08rem;max-width:42ch;font-weight:500}
+  .seller-cta{display:flex;flex-direction:column;align-items:flex-start;gap:1rem}
+  .seller .btn-primary{background:#F6EFE4;color:#241F1A}
+  .seller .btn-primary:hover{background:#fff;transform:translateY(-2px)}
+  .seller small{color:#EADCC6;font-size:.86rem}
+  .seller-deco{position:absolute;right:-40px;bottom:-60px;width:230px;height:230px;border-radius:50%;border:1.5px solid rgba(244,220,190,.28);pointer-events:none}
+  .seller-deco::before{content:"";position:absolute;inset:34px;border-radius:50%;border:1.5px solid rgba(244,220,190,.2)}
+
+  /* ============ TEAM ============ */
+  .team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.75rem;margin-top:3rem}
+  .bio{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-sm);transition:transform .45s var(--ease),box-shadow .45s var(--ease)}
+  .bio:hover{transform:translateY(-6px);box-shadow:var(--shadow-md)}
+  .bio-photo{
+    aspect-ratio:3/3.4;position:relative;
+    /* PHOTO PLACEHOLDER: professional headshot, warm natural light, 900×1020, neutral/island backdrop */
+    background:linear-gradient(165deg,#dfe8e2 0%,#9fb6ac 55%,#2f5249 100%);
+  }
+  .bio-photo .role{position:absolute;left:16px;bottom:16px;background:rgba(246,239,228,.94);color:var(--text);padding:.42rem .85rem;border-radius:100px;font-size:.76rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase}
+  .bio-body{padding:1.6rem 1.6rem 1.8rem}
+  .bio-body h3{margin-bottom:.15rem}
+  .bio-body .lic{font-size:.82rem;color:var(--accent-deep);font-weight:600;letter-spacing:.06em;text-transform:uppercase}
+  .bio-body p{margin-top:.9rem;font-size:.96rem;color:var(--text-soft);line-height:1.6}
+  .bio-quote{margin-top:1rem;font-family:var(--display);font-style:italic;font-size:1.02rem;color:var(--text);line-height:1.4}
+
+  /* ============ REVIEWS ============ */
+  .reviews{background:var(--primary);color:#EAF1ED}
+  .reviews .h2,.reviews .eyebrow{color:#F6EFE4}
+  .reviews .eyebrow{color:#E8B078}
+  .reviews .eyebrow::before{background:#E8B078}
+  .reviews .section-head p{color:#BCCFC8}
+  .reviews-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.75rem;margin-top:3rem}
+  .quote{
+    background:rgba(255,255,255,.04);border:1px solid rgba(234,241,237,.14);border-radius:var(--radius-lg);
+    padding:2.2rem;position:relative;
+  }
+  .quote .mark{font-family:var(--display);font-size:4rem;line-height:.6;color:#E8B078;opacity:.6;height:1.6rem;display:block}
+  .quote blockquote{font-family:var(--display);font-size:1.3rem;line-height:1.45;color:#F6EFE4;margin:.6rem 0 1.4rem}
+  .quote .stars{font-size:1.05rem}
+  .quote footer{margin-top:.8rem;font-size:.88rem;color:#BCCFC8;display:flex;align-items:center;gap:.6rem}
+  .quote .src{margin-left:auto;font-weight:600;letter-spacing:.04em;text-transform:uppercase;font-size:.74rem;color:#9FB6AC}
+
+  /* ============ CONTACT / FOOTER ============ */
+  .contact{background:var(--background)}
+  .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,5vw,4.5rem);align-items:start}
+  .contact-info .h2{max-width:14ch}
+  .contact-info p{margin-top:1.1rem;max-width:40ch;color:var(--text-soft)}
+  .contact-list{margin-top:2rem;display:flex;flex-direction:column;gap:1.2rem}
+  .contact-row{display:flex;gap:1rem;align-items:flex-start}
+  .contact-row .ic{width:44px;height:44px;flex-shrink:0;border-radius:12px;background:var(--surface);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;color:var(--primary)}
+  .contact-row .ic svg{width:20px;height:20px}
+  .contact-row .lbl{font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text-soft);font-weight:600}
+  .contact-row a,.contact-row address{font-style:normal;font-weight:600;font-size:1.05rem;color:var(--text);line-height:1.4}
+  .contact-row a:hover{color:var(--accent-deep)}
+  .map-ph{
+    margin-top:2rem;border-radius:var(--radius);overflow:hidden;border:1px solid var(--line);
+    aspect-ratio:16/7;display:flex;align-items:center;justify-content:center;color:var(--text-soft);font-size:.86rem;text-align:center;padding:1rem;
+    /* MAP PLACEHOLDER: embed Google Maps iframe for 3750 Wailea Alanui #A-37, Wailea, HI 96753 */
+    background:
+      linear-gradient(135deg, rgba(193,106,62,.12), transparent 60%),
+      repeating-linear-gradient(45deg,#ece2d0 0 14px,#f3ebdd 14px 28px);
+  }
+
+  /* form */
+  .lead-form{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-lg);padding:clamp(1.6rem,3vw,2.4rem);box-shadow:var(--shadow-sm)}
+  .lead-form h3{font-size:1.5rem;margin-bottom:.4rem}
+  .lead-form .caption{margin-bottom:1.6rem}
+  .field{margin-bottom:1.1rem}
+  .field label{display:block;font-size:.82rem;font-weight:600;letter-spacing:.04em;margin-bottom:.45rem;color:var(--text)}
+  .field input,.field select,.field textarea{
+    width:100%;padding:.85rem 1rem;border:1.5px solid var(--line);border-radius:12px;background:var(--background);
+    font:inherit;font-size:1rem;color:var(--text);min-height:50px;transition:border-color .25s var(--ease), background .25s var(--ease);
+  }
+  .field textarea{min-height:118px;resize:vertical}
+  .field input:focus,.field select:focus,.field textarea:focus{border-color:var(--primary);background:#fff;outline:none}
+  .field input:focus-visible,.field select:focus-visible,.field textarea:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+  .field-row{display:grid;grid-template-columns:1fr 1fr;gap:1.1rem}
+  .lead-form .btn{width:100%;margin-top:.4rem}
+
+  footer.site-footer{background:#1A2E29;color:#C7D6CF;padding-block:clamp(2.6rem,5vw,4rem) 2rem}
+  .footer-top{display:grid;grid-template-columns:2fr 1fr 1fr;gap:2.5rem;padding-bottom:2.5rem;border-bottom:1px solid rgba(234,241,237,.12)}
+  .footer-brand b{font-family:var(--display);font-size:1.5rem;color:#F6EFE4;font-weight:500;display:block;margin-bottom:.5rem}
+  .footer-brand p{max-width:34ch;font-size:.92rem;line-height:1.6}
+  .footer-col h4{font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:#9FB6AC;margin-bottom:1rem;font-weight:600}
+  .footer-col a{display:block;padding-block:.32rem;font-size:.95rem;transition:color .25s var(--ease)}
+  .footer-col a:hover{color:#E8B078}
+  .socials{display:flex;gap:.7rem;margin-top:1.2rem}
+  .socials a{width:42px;height:42px;border-radius:50%;border:1px solid rgba(234,241,237,.22);display:flex;align-items:center;justify-content:center;transition:background .3s var(--ease),border-color .3s var(--ease),transform .3s var(--ease)}
+  .socials a:hover{background:#E8B078;border-color:#E8B078;color:#1A2E29;transform:translateY(-3px)}
+  .socials svg{width:18px;height:18px}
+  .footer-bottom{display:flex;flex-wrap:wrap;gap:.8rem 1.5rem;justify-content:space-between;align-items:center;padding-top:1.8rem;font-size:.82rem;color:#9FB6AC}
+  .footer-bottom .legal{display:flex;flex-wrap:wrap;gap:.4rem 1.2rem;align-items:center}
+  .eho{display:inline-flex;align-items:center;gap:.5rem}
+  .eho svg{width:18px;height:18px}
+
+  /* ============ SCROLL REVEAL ============ */
+  /* Hidden state is gated behind html.reveal-ready (added by JS only when motion is allowed),
+     so content is fully visible if JS is disabled, unsupported, or the observer never fires. */
+  .reveal{transition:opacity .8s var(--ease), transform .8s var(--ease)}
+  html.reveal-ready .reveal{opacity:0;transform:translateY(26px)}
+  html.reveal-ready .reveal.is-visible{opacity:1;transform:none}
+  .reveal[data-delay="1"]{transition-delay:.08s}
+  .reveal[data-delay="2"]{transition-delay:.16s}
+  .reveal[data-delay="3"]{transition-delay:.24s}
+  .reveal[data-delay="4"]{transition-delay:.32s}
+
+  @media (prefers-reduced-motion: reduce){
+    .reveal{opacity:1;transform:none;transition:none}
+    .btn,.card,.area,.bio{transition:none}
+    *{scroll-behavior:auto !important}
+  }
+
+  /* ============ RESPONSIVE ============ */
+  @media (max-width:1000px){
+    .listings-grid,.team-grid{grid-template-columns:repeat(2,1fr)}
+    .areas{grid-template-columns:repeat(3,1fr)}
+    .reviews-grid{grid-template-columns:1fr}
+    .seller{grid-template-columns:1fr;gap:1.6rem}
+    .seller-deco{display:none}
+  }
+  @media (max-width:760px){
+    .nav-links,.nav-phone{display:none}
+    .nav-toggle{display:flex}
+    /* mobile menu panel */
+    .nav-links{
+      display:flex;position:fixed;inset:78px 0 auto 0;flex-direction:column;align-items:flex-start;gap:0;
+      background:rgba(246,239,228,.98);backdrop-filter:blur(14px);padding:1rem var(--gutter) 2rem;
+      border-bottom:1px solid var(--line);box-shadow:0 30px 50px -30px rgba(36,31,26,.6);
+      transform:translateY(-12px);opacity:0;visibility:hidden;transition:opacity .3s var(--ease),transform .3s var(--ease),visibility .3s;
+    }
+    .nav.open .nav-links{transform:none;opacity:1;visibility:visible}
+    .nav-links a{width:100%;padding:1rem 0;font-size:1.15rem;border-bottom:1px solid var(--line);min-height:54px;display:flex;align-items:center}
+    .nav-links a::after{display:none}
+    .nav.open .nav-toggle span{background:transparent}
+    .nav.open .nav-toggle span::before{transform:rotate(45deg);top:0}
+    .nav.open .nav-toggle span::after{transform:rotate(-45deg);top:0}
+
+    .listings-grid,.team-grid{grid-template-columns:1fr}
+    .areas{grid-template-columns:repeat(2,1fr)}
+    .trust-grid{grid-template-columns:repeat(2,1fr);gap:2rem 1rem}
+    .trust-item:nth-child(3)::before,.trust-item:nth-child(2)::before{display:none}
+    .contact-grid,.field-row{grid-template-columns:1fr}
+    .footer-top{grid-template-columns:1fr;gap:2rem}
+    .hero{min-height:auto;padding-top:96px;padding-bottom:0;flex-direction:column;align-items:stretch}
+    .hero-inner{padding-top:24px;padding-bottom:0}
+    .hero-scene{position:relative;order:2;height:240px;margin-top:2.5rem;width:calc(100% + 2*var(--gutter));margin-inline:calc(-1*var(--gutter))}
+    .hero h1{max-width:none}
+    section{padding-block:48px}
+  }
+  @media (max-width:400px){
+    .areas{grid-template-columns:1fr}
+    body{font-size:16px}
+  }
+</style>
+<script>
+  /* Pre-paint: arm reveal animations only when motion is allowed. Prevents FOUC and
+     keeps all content visible if JavaScript is disabled (no class is ever added). */
+  if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    document.documentElement.classList.add("reveal-ready");
+  }
+</script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<!-- ============ HEADER ============ -->
+<header class="site-header" id="top">
+  <div class="wrap">
+    <nav class="nav" aria-label="Primary">
+      <a class="brand" href="#top" aria-label="The Smith Team, home">
+        <b>The Smith Team</b>
+        <span>Coldwell Banker Island Properties</span>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#listings">For Sale</a></li>
+        <li><a href="#buyers">Communities</a></li>
+        <li><a href="#sell">Home Value</a></li>
+        <li><a href="#team">About</a></li>
+        <li><a href="#reviews">Reviews</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <div class="nav-cta">
+        <a class="nav-phone" href="tel:+18085720866">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          (808) 572-0866
+        </a>
+        <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks"><span></span></button>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ============ HERO ============ -->
+  <section class="hero" aria-labelledby="hero-title">
+    <!-- Hero island photo — hotlinked from Pexels (free commercial license). Swap to owned/MLS photography for launch. -->
+    <div class="hero-scene" aria-hidden="true">
+      <img class="hero-photo" src="https://images.pexels.com/photos/30892543/pexels-photo-30892543.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1600"
+           alt="" loading="eager" decoding="async" onerror="this.remove()" />
+    </div>
+
+    <div class="hero-inner">
+      <p class="eyebrow reveal">Maui · Hawaiʻi Real Estate</p>
+      <h1 class="h1 reveal" data-delay="1" id="hero-title">Your own little<br>piece of Maui.</h1>
+      <p class="lead reveal" data-delay="2">For 35 years and three generations, the Smith Team has helped families buy and sell across the island — with aloha, integrity, and an insider's knowledge of every shore.</p>
+      <div class="hero-actions reveal" data-delay="3">
+        <a class="btn btn-primary" href="#listings">Search Maui homes</a>
+        <a class="btn btn-outline" href="#sell">What's my home worth?</a>
+      </div>
+      <p class="hero-proof reveal" data-delay="4">
+        <span class="stars" aria-hidden="true">★★★★★</span>
+        <span><cite>"Exemplary integrity and knowledge of the Maui real estate market."</cite> — Verified Zillow review</span>
+      </p>
+    </div>
+  </section>
+
+  <!-- ============ TRUST STRIP ============ -->
+  <section class="trust" aria-label="At a glance">
+    <div class="wrap">
+      <div class="trust-grid">
+        <div class="trust-item reveal"><b>35</b><span>Years on Maui</span></div>
+        <div class="trust-item reveal" data-delay="1"><b>3</b><span>Generations of realtors</span></div>
+        <div class="trust-item reveal" data-delay="2"><b>Top 3</b><span>Ranked Maui agent</span></div>
+        <div class="trust-item reveal" data-delay="3"><span class="stars" aria-hidden="true">★★★★★</span><b style="font-size:1.5rem">5.0</b><span>Zillow rating</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FEATURED LISTINGS ============ -->
+  <section id="listings" aria-labelledby="listings-title">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Featured Listings</p>
+        <h2 class="h2" id="listings-title">Now on the market</h2>
+        <p>A curated look at homes on the Maui market right now — from south-shore condos to oceanfront estates.</p>
+      </div>
+
+      <div class="listings-grid">
+        <!-- LISTING 1 — live data from ksmith.islandproperties.com/our-listings (re-verify status & price before launch) -->
+        <article class="card reveal">
+          <div class="card-media" role="img" aria-label="Oceanfront condo at 4850 Makena Alanui Road in Makena, Maui">
+            <!-- PHOTO PLACEHOLDER: listing photo for 4850 Makena Alanui Rd, Makena -->
+            <span class="area-tag">Makena · South Maui</span>
+            <span class="price-tag">$4,995,000</span>
+          </div>
+          <div class="card-body">
+            <h3 class="addr">4850 Makena Alanui Rd</h3>
+            <p class="town">Makena, Maui · Oceanfront condo</p>
+            <div class="card-specs">
+              <span aria-label="2 bedrooms">🛏 2 bd</span>
+              <span aria-label="2 bathrooms">🛁 2 ba</span>
+              <span aria-label="1,644 square feet">▱ 1,644 sqft</span>
+            </div>
+            <a class="btn-ghost card-link" href="#contact">View listing <span class="arrow" aria-hidden="true">→</span></a>
+          </div>
+        </article>
+
+        <!-- LISTING 2 -->
+        <article class="card reveal" data-delay="1">
+          <div class="card-media" role="img" aria-label="Single-family home at 199 Puaehu Street in Wailuku, Maui">
+            <!-- PHOTO PLACEHOLDER: listing photo for 199 Puaehu St, Wailuku -->
+            <span class="area-tag">Wailuku · Central</span>
+            <span class="price-tag">$1,499,000</span>
+          </div>
+          <div class="card-body">
+            <h3 class="addr">199 Puaehu St</h3>
+            <p class="town">Wailuku, Maui · Single-family home</p>
+            <div class="card-specs">
+              <span aria-label="3 bedrooms">🛏 3 bd</span>
+              <span aria-label="2 bathrooms">🛁 2 ba</span>
+              <span aria-label="1,836 square feet">▱ 1,836 sqft</span>
+            </div>
+            <a class="btn-ghost card-link" href="#contact">View listing <span class="arrow" aria-hidden="true">→</span></a>
+          </div>
+        </article>
+
+        <!-- LISTING 3 -->
+        <article class="card reveal" data-delay="2">
+          <div class="card-media" role="img" aria-label="Condo at 15 Kulanihakoi Street in Kihei, Maui">
+            <!-- PHOTO PLACEHOLDER: listing photo for 15 Kulanihakoi St, Kihei -->
+            <span class="area-tag">Kihei · South Shore</span>
+            <span class="price-tag">$625,000</span>
+          </div>
+          <div class="card-body">
+            <h3 class="addr">15 Kulanihakoi St</h3>
+            <p class="town">Kihei, Maui · Condo</p>
+            <div class="card-specs">
+              <span aria-label="3 bedrooms">🛏 3 bd</span>
+              <span aria-label="2 bathrooms">🛁 2 ba</span>
+              <span aria-label="932 square feet">▱ 932 sqft</span>
+            </div>
+            <a class="btn-ghost card-link" href="#contact">View listing <span class="arrow" aria-hidden="true">→</span></a>
+          </div>
+        </article>
+      </div>
+
+      <div class="listings-foot reveal">
+        <a class="btn btn-primary" href="#contact">Browse all Maui listings</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ BUYERS / AREAS ============ -->
+  <section id="buyers" class="buyers" aria-labelledby="buyers-title">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">For Buyers</p>
+        <h2 class="h2" id="buyers-title">Find your place, from shore to summit</h2>
+        <p>We know every neighborhood on the island intimately — where the trade winds blow, where the surf rolls in, and where the next great value is hiding. Start with the communities we serve best.</p>
+      </div>
+
+      <!-- Community photos hotlinked from Pexels (free commercial license); representative area imagery, not specific listings. -->
+      <div class="areas">
+        <article class="area reveal">
+          <img class="area-photo" src="https://images.pexels.com/photos/31181038/pexels-photo-31181038.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=800" alt="Turquoise water and golden sand on Maui's south shore" loading="lazy" decoding="async" onerror="this.remove()" />
+          <div class="area-body"><b>Kihei</b><span>Sunny south-shore condos &amp; beach homes</span></div>
+        </article>
+        <article class="area reveal" data-delay="1">
+          <img class="area-photo" src="https://images.pexels.com/photos/15516363/pexels-photo-15516363.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=800" alt="Wailea–Makena coastline with homes above the water" loading="lazy" decoding="async" onerror="this.remove()" />
+          <div class="area-body"><b>Wailea &amp; Makena</b><span>Resort luxury &amp; oceanfront estates</span></div>
+        </article>
+        <article class="area reveal" data-delay="2">
+          <img class="area-photo" src="https://images.pexels.com/photos/27135336/pexels-photo-27135336.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=800" alt="West Maui resort coastline at sunset near Lahaina" loading="lazy" decoding="async" onerror="this.remove()" />
+          <div class="area-body"><b>Lahaina</b><span>West-side history &amp; coastal living</span></div>
+        </article>
+        <article class="area reveal" data-delay="3">
+          <img class="area-photo" src="https://images.pexels.com/photos/10378303/pexels-photo-10378303.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=800" alt="Haleakalā's upcountry volcanic landscape" loading="lazy" decoding="async" onerror="this.remove()" />
+          <div class="area-body"><b>Pukalani</b><span>Upcountry cool &amp; family neighborhoods</span></div>
+        </article>
+        <article class="area reveal" data-delay="4">
+          <img class="area-photo" src="https://images.pexels.com/photos/15516442/pexels-photo-15516442.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=800" alt="Lush green central-Maui coastline" loading="lazy" decoding="async" onerror="this.remove()" />
+          <div class="area-body"><b>Wailuku</b><span>Central-Maui value &amp; convenience</span></div>
+        </article>
+      </div>
+
+      <div class="buyers-actions reveal">
+        <a class="btn btn-primary" href="#contact">Start your search</a>
+        <a class="btn btn-outline" href="#contact">See open houses</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SELLER BAND ============ -->
+  <section id="sell" class="seller-wrap" aria-labelledby="sell-title">
+    <div class="seller reveal">
+      <div>
+        <p class="eyebrow">For Sellers</p>
+        <h2 class="h2" id="sell-title">What's your Maui home worth?</h2>
+        <p>Get a complimentary, data-driven valuation from a team that has tracked this market for three decades — no pressure, just real numbers and real aloha.</p>
+      </div>
+      <div class="seller-cta">
+        <a class="btn btn-primary" href="#contact">Request my home valuation</a>
+        <small>Free &amp; confidential · Typically returned within 24 hours</small>
+      </div>
+      <span class="seller-deco" aria-hidden="true"></span>
+    </div>
+  </section>
+
+  <!-- ============ TEAM ============ -->
+  <section id="team" aria-labelledby="team-title">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Meet the Team</p>
+        <h2 class="h2" id="team-title">Three generations. One island. Real aloha.</h2>
+        <p>Born, raised, and rooted on Maui — the Smiths bring family-first care to every transaction.</p>
+      </div>
+
+      <div class="team-grid">
+        <!-- KEN -->
+        <article class="bio reveal">
+          <div class="bio-photo" role="img" aria-label="Portrait of Ken Smith, Broker and team lead">
+            <!-- PHOTO PLACEHOLDER: Ken Smith headshot -->
+            <span class="role">Broker · Team Lead</span>
+          </div>
+          <div class="bio-body">
+            <h3 class="h3">Ken Smith</h3>
+            <p class="lic">RS — 35 years on Maui</p>
+            <p>Before real estate, Ken ran Ken's Natural Foods and raised three children on the island. A marathoner with 20 races behind him — including the legendary Run to the Sun ultra — he brings the same stamina and family-first care to every client.</p>
+            <p class="bio-quote">"I really enjoy helping people find their own little piece of Maui."</p>
+          </div>
+        </article>
+
+        <!-- GREG -->
+        <article class="bio reveal" data-delay="1">
+          <div class="bio-photo" role="img" aria-label="Portrait of Gregory Smith, agent">
+            <!-- PHOTO PLACEHOLDER: Gregory Smith headshot -->
+            <span class="role">Agent</span>
+          </div>
+          <div class="bio-body">
+            <h3 class="h3">Gregory P. Smith</h3>
+            <p class="lic">RB — Maui waterman</p>
+            <p>Greg grew up surfing every shore of Maui — north, south, east, and west. A professional-caliber waterman, he pairs deep, enthusiastic market knowledge with a willingness to always go the extra mile for his clients.</p>
+            <p class="bio-quote">"Enthusiastic, passionate, and always one step ahead of the market."</p>
+          </div>
+        </article>
+
+        <!-- MELISSA -->
+        <article class="bio reveal" data-delay="2">
+          <div class="bio-photo" role="img" aria-label="Portrait of Melissa Smith, agent">
+            <!-- PHOTO PLACEHOLDER: Melissa Smith headshot -->
+            <span class="role">Agent</span>
+          </div>
+          <div class="bio-body">
+            <h3 class="h3">Melissa Smith</h3>
+            <p class="lic">RB — 3rd-generation Maui native</p>
+            <p>Licensed since 2001, Melissa was named Rookie of the Year and ranked a Top-3 Maui agent in 2007 — out of 450 statewide. With a B.A. from the University of Washington, she leads with aloha and empowers clients to make informed decisions.</p>
+            <p class="bio-quote">"Knowledge is power — I make sure my clients have it."</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ REVIEWS ============ -->
+  <section id="reviews" class="reviews" aria-labelledby="reviews-title">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Client Reviews</p>
+        <h2 class="h2" id="reviews-title">Trusted across the island</h2>
+        <p>Five-star reviews from buyers and sellers who found their place with the Smith Team.</p>
+      </div>
+
+      <div class="reviews-grid">
+        <!-- REVIEW 1 — contains a real quoted phrase; replace name/details with exact Zillow review -->
+        <figure class="quote reveal">
+          <span class="mark" aria-hidden="true">"</span>
+          <blockquote>Their exemplary integrity and knowledge of the Maui real estate market made an otherwise daunting process feel effortless. We couldn't have asked for a better team.</blockquote>
+          <span class="stars" aria-hidden="true">★★★★★</span>
+          <figcaption><span>Verified buyer, South Maui</span><span class="src">Zillow</span></figcaption>
+        </figure>
+
+        <!-- REVIEW 2 — paraphrased from a real Zillow review (repeat client, 5 properties since 2009); paste exact text before launch -->
+        <figure class="quote reveal" data-delay="1">
+          <span class="mark" aria-hidden="true">"</span>
+          <blockquote>We've purchased five properties with the Smith Team since 2009. Decades of experience, and it shows in every detail — we wouldn't trust anyone else on Maui.</blockquote>
+          <span class="stars" aria-hidden="true">★★★★★</span>
+          <figcaption><span>Repeat client since 2009</span><span class="src">Zillow</span></figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CONTACT ============ -->
+  <section id="contact" class="contact" aria-labelledby="contact-title">
+    <div class="wrap">
+      <div class="contact-grid">
+        <div class="contact-info reveal">
+          <p class="eyebrow">Get in Touch</p>
+          <h2 class="h2" id="contact-title">Let's find your piece of Maui.</h2>
+          <p>Whether you're buying, selling, or just exploring, the Smith Team is here to help — no pressure, all aloha.</p>
+
+          <div class="contact-list">
+            <div class="contact-row">
+              <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>
+              <div><span class="lbl">Call or text</span><a href="tel:+18085720866">(808) 572-0866</a></div>
+            </div>
+            <div class="contact-row">
+              <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg></span>
+              <div><span class="lbl">Email</span><a href="mailto:team@mauisales.com">team@mauisales.com</a></div>
+            </div>
+            <div class="contact-row">
+              <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
+              <div><span class="lbl">Office</span><address>3750 Wailea Alanui #A-37<br>Wailea, HI 96753</address></div>
+            </div>
+          </div>
+
+          <div class="map-ph" role="img" aria-label="Map placeholder for the Wailea office at 3750 Wailea Alanui, Suite A-37">
+            <span>Map — Coldwell Banker Island Properties, 3750 Wailea Alanui #A-37, Wailea</span>
+          </div>
+        </div>
+
+        <!-- LEAD FORM -->
+        <form class="lead-form reveal" data-delay="1" action="#" method="post" novalidate aria-labelledby="form-title">
+          <h3 id="form-title">Request a callback</h3>
+          <p class="caption">We typically respond within one business day.</p>
+
+          <div class="field-row">
+            <div class="field">
+              <label for="f-name">Name</label>
+              <input id="f-name" name="name" type="text" autocomplete="name" placeholder="Your name" required />
+            </div>
+            <div class="field">
+              <label for="f-phone">Phone</label>
+              <input id="f-phone" name="phone" type="tel" autocomplete="tel" placeholder="(808) 000-0000" />
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="f-email">Email</label>
+            <input id="f-email" name="email" type="email" autocomplete="email" placeholder="you@email.com" required />
+          </div>
+
+          <div class="field">
+            <label for="f-intent">I'm interested in</label>
+            <select id="f-intent" name="intent">
+              <option value="buying">Buying a home on Maui</option>
+              <option value="selling">Selling my Maui home</option>
+              <option value="valuation">A free home valuation</option>
+              <option value="both">Both buying &amp; selling</option>
+              <option value="other">Something else</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="f-msg">Message</label>
+            <textarea id="f-msg" name="message" placeholder="Tell us a little about what you're looking for…"></textarea>
+          </div>
+
+          <button class="btn btn-primary" type="submit">Send message</button>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <b>The Smith Team</b>
+        <p>Three generations of Maui realtors helping families buy, sell, and value homes across the island — with aloha since 1990.</p>
+        <div class="socials">
+          <!-- SOCIAL PLACEHOLDERS: link to the team's real profiles -->
+          <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 9h3V6h-3c-1.7 0-3 1.3-3 3v2H9v3h2v7h3v-7h2.5l.5-3H14V9z"/></svg></a>
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+          <a href="https://www.zillow.com/" aria-label="Zillow reviews"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2 2 9.5 4 12l8-6 8 6 2-2.5L12 2zM7 14l5-3.6L17 14v6H7v-6z"/></svg></a>
+        </div>
+      </div>
+
+      <nav class="footer-col" aria-label="Explore">
+        <h4>Explore</h4>
+        <a href="#listings">Featured listings</a>
+        <a href="#buyers">Buy a home</a>
+        <a href="#sell">Sell / home value</a>
+        <a href="#team">Our team</a>
+        <a href="#reviews">Reviews</a>
+      </nav>
+
+      <nav class="footer-col" aria-label="Maui communities">
+        <h4>Communities</h4>
+        <a href="#buyers">Kihei</a>
+        <a href="#buyers">Wailea &amp; Makena</a>
+        <a href="#buyers">Lahaina</a>
+        <a href="#buyers">Pukalani</a>
+        <a href="#buyers">Wailuku</a>
+      </nav>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="legal">
+        <span>© 2026 The Smith Team · Coldwell Banker Island Properties</span>
+        <span class="eho">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/><path d="M9 20v-5h6v5"/></svg>
+          Equal Housing Opportunity
+        </span>
+      </div>
+      <span>Each office independently owned &amp; operated.</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ============ SCRIPT (deferred, non-blocking) ============ -->
+<script>
+(function () {
+  "use strict";
+  var prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* Sticky header state */
+  var header = document.querySelector(".site-header");
+  var onScroll = function () {
+    if (window.scrollY > 24) header.classList.add("scrolled");
+    else header.classList.remove("scrolled");
+  };
+  onScroll();
+  window.addEventListener("scroll", onScroll, { passive: true });
+
+  /* Mobile menu */
+  var nav = document.querySelector(".nav");
+  var toggle = document.getElementById("navToggle");
+  var links = document.getElementById("navLinks");
+  function closeMenu() {
+    nav.classList.remove("open");
+    toggle.setAttribute("aria-expanded", "false");
+    toggle.setAttribute("aria-label", "Open menu");
+  }
+  toggle.addEventListener("click", function () {
+    var open = nav.classList.toggle("open");
+    toggle.setAttribute("aria-expanded", open ? "true" : "false");
+    toggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+  });
+  links.addEventListener("click", function (e) {
+    if (e.target.closest("a")) closeMenu();
+  });
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape" && nav.classList.contains("open")) { closeMenu(); toggle.focus(); }
+  });
+
+  /* Scroll-reveal via IntersectionObserver */
+  var reveals = document.querySelectorAll(".reveal");
+  function revealAll() {
+    document.documentElement.classList.remove("reveal-ready");
+    reveals.forEach(function (el) { el.classList.add("is-visible"); });
+  }
+  if (prefersReduced || !("IntersectionObserver" in window)) {
+    revealAll();
+  } else {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: "0px 0px -8% 0px" });
+    reveals.forEach(function (el) { io.observe(el); });
+
+    /* Failsafe: if the observer never delivers (some headless/edge environments),
+       reveal everything so content is never left invisible. */
+    window.setTimeout(function () {
+      if (document.querySelectorAll(".reveal.is-visible").length === 0) revealAll();
+    }, 2500);
+  }
+})();
+</script>
+</body>
+</html>
